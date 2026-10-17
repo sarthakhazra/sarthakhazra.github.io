@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <!-- Modern Academic Typography -->
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- MathJax for Beautiful LaTeX Rendering -->
+  <!-- MathJax for LaTeX Rendering -->
   <script>
     MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
@@ -28,7 +28,7 @@
       --accent-text: #115e59;
       --border: #e4e4e7;
       --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-      --nav-bg: rgba(250, 250, 249, 0.85);
+      --nav-bg: rgba(250, 250, 249, 0.88);
     }
 
     :root[data-theme="dark"] {
@@ -41,8 +41,8 @@
       --accent-soft: rgba(45, 212, 191, 0.12);
       --accent-text: #5eead4;
       --border: #1f2937;
-      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
-      --nav-bg: rgba(9, 13, 22, 0.85);
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+      --nav-bg: rgba(9, 13, 22, 0.88);
     }
 
     * {
@@ -61,11 +61,10 @@
       color: var(--text-primary);
       line-height: 1.7;
       transition: background-color 0.25s ease, color 0.25s ease;
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
-      background-size: 28px 28px;
+      /* Clean, solid background with no dot texture */
     }
 
-    /* Glassmorphism Top Navbar */
+    /* Sticky Top Navbar */
     header {
       position: sticky;
       top: 0;
@@ -76,7 +75,7 @@
     }
 
     .nav-container {
-      max-width: 1040px;
+      max-width: 1060px;
       margin: 0 auto;
       padding: 1rem 1.5rem;
       display: flex;
@@ -98,14 +97,14 @@
     .brand span {
       color: var(--accent);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-left: 0.4rem;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.35rem;
       list-style: none;
       flex-wrap: wrap;
     }
@@ -113,7 +112,7 @@
     .nav-links a {
       text-decoration: none;
       color: var(--text-secondary);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -126,19 +125,19 @@
       background: var(--bg-subtle);
       border: 1px solid var(--border);
       color: var(--text-primary);
-      padding: 0.45rem 0.75rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
       display: flex;
       align-items: center;
       gap: 0.35rem;
     }
 
-    /* Main Wrapper */
+    /* Main Content Container */
     main {
-      max-width: 1040px;
+      max-width: 1060px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }
@@ -159,10 +158,6 @@
       grid-template-columns: 260px 1fr;
       gap: 3rem;
       align-items: center;
-    }
-
-    .profile-frame {
-      position: relative;
     }
 
     .profile-photo {
@@ -196,7 +191,7 @@
     }
 
     .hero-subtitle {
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       color: var(--text-secondary);
       margin-bottom: 1.25rem;
     }
@@ -241,7 +236,7 @@
 
     .btn-group {
       display: flex;
-      wrap: wrap;
+      flex-wrap: wrap;
       gap: 0.85rem;
     }
 
@@ -254,7 +249,7 @@
       font-size: 0.92rem;
       font-weight: 600;
       text-decoration: none;
-      transition: transform 0.15s ease, opacity 0.15s ease;
+      transition: transform 0.15s ease;
     }
 
     .btn:hover {
@@ -297,7 +292,7 @@
       font-weight: 600;
     }
 
-    /* Cards & Grids */
+    /* Grids & Cards */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -326,6 +321,11 @@
       border-color: var(--accent);
     }
 
+    .card-full {
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent);
+    }
+
     .card-badge {
       align-self: flex-start;
       font-family: 'JetBrains Mono', monospace;
@@ -334,13 +334,13 @@
       color: var(--accent-text);
       padding: 0.25rem 0.65rem;
       border-radius: 6px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
     .card h3 {
       font-family: 'Newsreader', serif;
       font-size: 1.35rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
     .card-meta {
@@ -352,33 +352,41 @@
 
     .card p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       flex: 1;
     }
 
+    .card-ref {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
     .card-link {
-      margin-top: 1.25rem;
+      margin-top: 1.2rem;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      color: var(--text-primary);
+      color: var(--accent);
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
     }
 
     .card-link:hover {
-      color: var(--accent);
+      text-decoration: underline;
     }
 
-    /* Timeline for Education */
+    /* Timeline */
     .timeline {
       border-left: 2px solid var(--border);
       margin-left: 0.75rem;
       padding-left: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .timeline-item {
@@ -386,7 +394,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.5rem;
+      padding: 1.4rem 1.6rem;
       box-shadow: var(--shadow);
     }
 
@@ -394,7 +402,7 @@
       content: "";
       position: absolute;
       left: -2.45rem;
-      top: 1.75rem;
+      top: 1.65rem;
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -404,7 +412,7 @@
 
     .timeline-year {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--accent);
       font-weight: 600;
     }
@@ -412,10 +420,27 @@
     .timeline-item h3 {
       font-family: 'Newsreader', serif;
       font-size: 1.25rem;
-      margin: 0.25rem 0;
+      margin: 0.2rem 0;
     }
 
-    /* Campus Photo Card in About Section */
+    /* Coursework Pills */
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .course-pill {
+      font-size: 0.82rem;
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      padding: 0.3rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    /* Campus Photo Card */
     .campus-showcase {
       border-radius: 16px;
       overflow: hidden;
@@ -426,7 +451,7 @@
 
     .campus-showcase img {
       width: 100%;
-      height: 250px;
+      height: 260px;
       object-fit: cover;
       object-position: center 70%;
       display: block;
@@ -468,15 +493,16 @@
   <!-- Top Navigation -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand">Sarthak Hazra <span>$\pi \approx 3.14$</span></a>
+      <a href="#" class="brand">Sarthak Hazra <span>Algebraic Geometry</span></a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#notes">Expository Notes</a></li>
+        <li><a href="#research">Research & Projects</a></li>
+        <li><a href="#talks">Talks & Notes</a></li>
+        <li><a href="#coursework">Coursework</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#about">About</a></li>
         <li>
           <button class="theme-btn" onclick="toggleTheme()" id="themeToggle">
-            🌙 Dark Mode
+            ☀️ Light Mode
           </button>
         </li>
       </ul>
@@ -492,10 +518,10 @@
           <img src="profile.jpg" alt="Sarthak Hazra" class="profile-photo" />
         </div>
         <div class="hero-content">
-          <div class="status-pill">BS-MS Dual Degree Candidate (2022–2027)</div>
+          <div class="status-pill">Fifth-Year BS-MS Student (2022–2027) • GPA: 8.5</div>
           <h1>Sarthak Hazra</h1>
           <p class="hero-subtitle">
-            Fifth-year undergraduate in the <strong>Department of Mathematics, IISER Tirupati</strong>, currently pursuing my Master's thesis in the <strong>Department of Mathematical Sciences, IISER Mohali</strong>.
+            Department of Mathematics, <strong>IISER Tirupati</strong> &middot; Currently pursuing my Master's thesis in the Department of Mathematical Sciences, <strong>IISER Mohali</strong>.
           </p>
 
           <div class="tag-row">
@@ -509,8 +535,8 @@
           <div class="contact-grid">
             <div><strong>Personal:</strong> <a href="mailto:sarthakhazra314@gmail.com">sarthakhazra314@gmail.com</a></div>
             <div><strong>Institutional:</strong> <a href="mailto:sarthak_20221135@students.iisertirupati.ac.in">sarthak_20221135@students.iisertirupati.ac.in</a></div>
-            <div><strong>Phone:</strong> <a href="tel:+917864905800">+91 7864905800</a></div>
-            <div><strong>Location:</strong> IISER Tirupati / IISER Mohali, India</div>
+            <div><strong>Phone:</strong> <a href="tel:+917864905800">+91-7864905800</a></div>
+            <div><strong>Address:</strong> Yerpedu Mandal, Tirupati Dist., AP – 517619</div>
           </div>
 
           <div class="btn-group">
@@ -521,69 +547,168 @@
       </div>
     </section>
 
-    <!-- RESEARCH SECTION -->
+    <!-- RESEARCH & PROJECTS SECTION -->
     <section id="research">
       <div class="section-header">
-        <span class="section-eyebrow">01 / Mathematical Inquiry</span>
-        <h2 class="section-title">Research & Projects</h2>
+        <span class="section-eyebrow">01 / Research & Experience</span>
+        <h2 class="section-title">MS Thesis & Guided Projects</h2>
       </div>
 
+      <!-- Featured MS Thesis -->
+      <div class="card card-full">
+        <span class="card-badge">MS Thesis • June 2026 – Present</span>
+        <h3>Degrees of Loci in Projective Constructions and their Degenerations</h3>
+        <div class="card-meta">Advisor: Dr. Chetan Tukaram Balwe (IISER Mohali)</div>
+        <p>
+          Investigating the algebraic mechanisms underlying degree-drop phenomena and developing a framework for tracking the degrees of loci generated through sequences of projective constructions and their degenerations. Working through the foundations of algebraic cycles, rational equivalence, the Chow ring $\text{CH}^*(X)$, Cartier divisors, intersection products, and Chern and Segre classes.
+        </p>
+        <div class="card-ref">
+          <strong>Primary Reference:</strong> <em>Intersection Theory</em> by William Fulton.
+        </div>
+      </div>
+
+      <!-- 4 Semester & Summer Projects Grid -->
       <div class="grid-2">
-        <!-- MS Thesis Card -->
         <div class="card">
-          <span class="card-badge">Current MS Thesis • IISER Mohali</span>
-          <h3>Enumerative Geometry & Intersection Theory</h3>
-          <div class="card-meta">Supervisor: Dr. Chetan Tukaram Balwe</div>
+          <span class="card-badge">Semester Project • Jan – Apr 2026</span>
+          <h3>Introduction to Schemes</h3>
+          <div class="card-meta">Advisor: Prof. D. S. Nagaraj (IISER Tirupati)</div>
           <p>
-            Exploring the degrees of loci in projective constructions and their degenerations. Currently studying intersection theory from William Fulton’s <em>Intersection Theory</em>—focusing on the foundations of algebraic cycles, the Chow ring $\text{CH}^*(X)$, Cartier divisors, intersection products, and the construction of Chern and Segre classes.
+            Studied sheaves and morphisms of sheaves, construction of the prime spectrum $\text{Spec } A$ with the Zariski topology, definitions and properties of schemes, morphisms of schemes, sheaves of modules, and divisors.
           </p>
+          <div class="card-ref">
+            <strong>Reference:</strong> <em>Algebraic Geometry</em> (Chapter II) by Robin Hartshorne.
+          </div>
         </div>
 
-        <!-- Past Semester Projects Card -->
         <div class="card">
-          <span class="card-badge">Semester Projects • IISER Tirupati</span>
-          <h3>Foundations of Algebraic Geometry & Scheme Theory</h3>
-          <div class="card-meta">Supervisors: Prof. D.S. Nagaraj & Dr. Girja Shanker Tripathi</div>
+          <span class="card-badge">Semester Project • Aug – Dec 2025</span>
+          <h3>Algebraic Geometry</h3>
+          <div class="card-meta">Advisor: Dr. Girja Shanker Tripathi (IISER Tirupati)</div>
           <p>
-            Completed all core and advanced coursework for the Integrated BS-MS degree in Mathematics at IISER Tirupati, alongside guided reading and semester projects in classical algebraic geometry (with Dr. Girja Shanker Tripathi) and the theory of schemes and sheaves (with Prof. D.S. Nagaraj).
+            Explored algebraic sets, Hilbert's Nullstellensatz, the Zariski topology, regular functions and maps, dimension theory, the ringed space structure of affine algebraic varieties, and the local study of tangent spaces, tangent cones, singularities, and regularity.
           </p>
+          <div class="card-ref">
+            <strong>Reference:</strong> J. S. Milne's <em>Algebraic Geometry</em> lecture notes.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Summer Project • May – Jul 2025</span>
+          <h3>de Rham Cohomology and Characteristic Classes</h3>
+          <div class="card-meta">Advisor: Dr. Subhash B (IISER Tirupati)</div>
+          <p>
+            Focused on exterior algebra, differential forms, chain complexes, de Rham cohomology, Mayer–Vietoris sequences, homotopy invariance, smooth manifolds, and integration of differential forms to translate analytical problems into cohomological formulations.
+          </p>
+          <div class="card-ref">
+            <strong>Reference:</strong> <em>From Calculus to Cohomology</em> by Ib Madsen and Jørgen Tornehave.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Semester Reading Project • Dec 2024 – Apr 2025</span>
+          <h3>Representation Theory of Finite Groups</h3>
+          <div class="card-meta">Advisor: Prof. D. S. Nagaraj (IISER Tirupati)</div>
+          <p>
+            Studied group representations, Maschke's theorem, modules over group algebras, irreducible representations, character theory, Schur's lemma, orthogonality relations, induced representations, and tensor products of representations.
+          </p>
+          <div class="card-ref">
+            <strong>Reference:</strong> <em>Linear Representations of Finite Groups</em> by Jean-Pierre Serre & lectures by Prof. D. S. Nagaraj.
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPOSITORY NOTES SECTION -->
-    <section id="notes">
+    <!-- TALKS & EXPOSITORY NOTES SECTION -->
+    <section id="talks">
       <div class="section-header">
-        <span class="section-eyebrow">02 / Expository Writing</span>
-        <h2 class="section-title">Some of My Notes</h2>
+        <span class="section-eyebrow">02 / Expository Writing & Seminars</span>
+        <h2 class="section-title">Talks & Mathematical Notes</h2>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 1.5rem;">
+        <div class="card">
+          <span class="card-badge">Student Talk • 15 April 2026</span>
+          <h3>Classification Theorem of Principal $G$-Bundles</h3>
+          <p>
+            Presented the classification of principal $G$-bundles over paracompact spaces via pullbacks of universal bundles over classifying spaces $BG$.
+          </p>
+          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Read Accompanying Notes (PDF) →</a>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Student Talk • 2025</span>
+          <h3>Proof of Hilbert's Nullstellensatz</h3>
+          <p>
+            Expository seminar talk on Hilbert's Nullstellensatz and the correspondence between radical ideals in $k[x_1,\dots,x_n]$ and algebraic sets in $\mathbb{A}^n_k$.
+          </p>
+        </div>
       </div>
 
       <div class="grid-3">
         <div class="card">
           <span class="card-badge">Bundles & Topology</span>
           <h3>Classification of Principal $G$-Bundles</h3>
-          <p>
-            Expository notes examining principal fiber bundles, transition functions, and classifying spaces $BG$ for topological groups.
-          </p>
-          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
+          <p>Expository notes on fiber bundles, transition functions, and homotopy classes $[X, BG]$.</p>
+          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Open PDF →</a>
         </div>
 
         <div class="card">
           <span class="card-badge">Functional Analysis</span>
           <h3>The Norm of a Multiplication Operator on $L^2$</h3>
-          <p>
-            A rigorous look at boundedness, operator norms $\|M_\phi\| = \|\phi\|_\infty$, and spectral properties of multiplication operators on $L^2$ spaces.
-          </p>
-          <a href="multiplication-operator.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
+          <p>Proof and analysis showing $\|M_\phi\| = \|\phi\|_\infty$ for bounded measurable functions on $L^2$.</p>
+          <a href="multiplication-operator.pdf" target="_blank" class="card-link">Open PDF →</a>
         </div>
 
         <div class="card">
           <span class="card-badge">Algebraic Topology</span>
           <h3>Homology of the Sphere</h3>
-          <p>
-            Computation and geometric intuition behind the singular and cellular homology groups $H_k(S^n; \mathbb{Z})$ of $n$-dimensional spheres.
-          </p>
-          <a href="homology-sphere.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
+          <p>Computation of the reduced homology groups $\tilde{H}_k(S^n; \mathbb{Z})$ of $n$-spheres.</p>
+          <a href="homology-sphere.pdf" target="_blank" class="card-link">Open PDF →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSEWORK SECTION -->
+    <section id="coursework">
+      <div class="section-header">
+        <span class="section-eyebrow">03 / Academic Foundation</span>
+        <h2 class="section-title">Relevant Coursework</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Algebra & Number Theory</h3>
+          <div class="course-list">
+            <span class="course-pill">Abstract Algebra</span>
+            <span class="course-pill">Rings & Modules</span>
+            <span class="course-pill">Fields & Galois Theory</span>
+            <span class="course-pill">Commutative Algebra</span>
+            <span class="course-pill">Classical Groups</span>
+            <span class="course-pill">Representation Theory of Finite Groups</span>
+            <span class="course-pill">Elementary Number Theory</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Topology & Geometry</h3>
+          <div class="course-list">
+            <span class="course-pill">Point-Set Topology</span>
+            <span class="course-pill">Algebraic Topology I & II</span>
+            <span class="course-pill">Differentiable Manifolds & Lie Groups</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Analysis & Differential Equations</h3>
+          <div class="course-list">
+            <span class="course-pill">Real Analysis I & II</span>
+            <span class="course-pill">Complex Analysis</span>
+            <span class="course-pill">Measure Theory & Integration</span>
+            <span class="course-pill">Analysis on Euclidean Space</span>
+            <span class="course-pill">Functional Analysis</span>
+            <span class="course-pill">Ordinary Differential Equations</span>
+          </div>
         </div>
       </div>
     </section>
@@ -591,7 +716,7 @@
     <!-- EDUCATION SECTION -->
     <section id="education">
       <div class="section-header">
-        <span class="section-eyebrow">03 / Academic Trajectory</span>
+        <span class="section-eyebrow">04 / Academic Trajectory</span>
         <h2 class="section-title">Education</h2>
       </div>
 
@@ -600,9 +725,7 @@
           <span class="timeline-year">2022 – 2027</span>
           <h3>Bachelor of Science and Master of Science (BS-MS Dual Degree)</h3>
           <p><strong>Department of Mathematics</strong>, Indian Institute of Science Education and Research (IISER), Tirupati</p>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.35rem;">
-            Address: Srinivasapuram, Yerpedu Mandal, Tirupati Dist, Andhra Pradesh, India – 517619
-          </p>
+          <p style="font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-top: 0.25rem;">GPA: 8.5 / 10.0</p>
         </div>
 
         <div class="timeline-item">
@@ -622,18 +745,21 @@
     <!-- ABOUT & BEYOND MATH SECTION -->
     <section id="about">
       <div class="section-header">
-        <span class="section-eyebrow">04 / Personal</span>
-        <h2 class="section-title">About Me & Beyond Mathematics</h2>
+        <span class="section-eyebrow">05 / Community & Personal</span>
+        <h2 class="section-title">Beyond Research</h2>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>A Bit More About Me</h3>
+          <h3>Community, Languages & Interests</h3>
           <p style="margin-top: 0.5rem;">
-            My broader mathematical interests span <strong>Algebraic Geometry, Algebraic Topology, and Representation Theory</strong>, with a particular fondness for Enumerative Geometry and Intersection Theory problems.
+            <strong>Math Club Leadership:</strong> Active member and former core team member of the <strong>IISER Tirupati Math Club</strong>.
           </p>
-          <p style="margin-top: 1rem;">
-            When I step away from commutative diagrams and Chow rings, I enjoy quiet evening walks around campus and exploring diverse cinema—I especially appreciate brilliant Indian films and storytelling.
+          <p style="margin-top: 0.85rem;">
+            <strong>Personal Interests:</strong> Outside of algebraic geometry and intersection theory, I enjoy quiet evening walks and exploring diverse cinema—I particularly appreciate brilliant Indian films.
+          </p>
+          <p style="margin-top: 0.85rem;">
+            <strong>Languages:</strong> Bengali (Native), English (Professional working proficiency), and Hindi (Professional working proficiency).
           </p>
         </div>
 
@@ -649,7 +775,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Sarthak Hazra &middot; Built with MathJax & Hosted on GitHub Pages</p>
+    <p>&copy; 2026 Sarthak Hazra &middot; Department of Mathematics, IISER Tirupati</p>
   </footer>
 
   <script>
@@ -667,10 +793,11 @@
       }
     }
 
-    // Load saved theme preference
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.getElementById('themeToggle').textContent = '☀️ Light Mode';
+    // Load saved theme preference (defaults to smooth dark mode)
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.getElementById('themeToggle').textContent = '🌙 Dark Mode';
     }
   </script>
 </body>
