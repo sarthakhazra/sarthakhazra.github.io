@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sarthak Hazra | Algebraic & Enumerative Geometry</title>
 
-  <!-- Modern Academic Typography -->
+  <!-- Academic Typography -->
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- MathJax for LaTeX Rendering -->
   <script>
     MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
@@ -24,6 +27,7 @@
       --text-primary: #18181b;
       --text-secondary: #52525b;
       --accent: #0f766e;
+      --accent-2: #b45309;
       --accent-soft: #ccfbf1;
       --accent-text: #115e59;
       --border: #e4e4e7;
@@ -34,10 +38,11 @@
     :root[data-theme="dark"] {
       --bg-main: #090d16;
       --bg-surface: #111827;
-      --bg-subtle: #1e293b;
+      --bg-subtle: #182234;
       --text-primary: #f3f4f6;
       --text-secondary: #9ca3af;
       --accent: #2dd4bf;
+      --accent-2: #f59e0b;
       --accent-soft: rgba(45, 212, 191, 0.12);
       --accent-text: #5eead4;
       --border: #1f2937;
@@ -61,7 +66,6 @@
       color: var(--text-primary);
       line-height: 1.7;
       transition: background-color 0.25s ease, color 0.25s ease;
-      /* Clean, solid background with no dot texture */
     }
 
     /* Sticky Top Navbar */
@@ -75,7 +79,7 @@
     }
 
     .nav-container {
-      max-width: 1060px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 1rem 1.5rem;
       display: flex;
@@ -97,8 +101,8 @@
     .brand span {
       color: var(--accent);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      margin-left: 0.4rem;
+      font-size: 0.82rem;
+      margin-left: 0.45rem;
     }
 
     .nav-links {
@@ -125,7 +129,7 @@
       background: var(--bg-subtle);
       border: 1px solid var(--border);
       color: var(--text-primary);
-      padding: 0.45rem 0.8rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 999px;
       cursor: pointer;
       font-size: 0.84rem;
@@ -137,7 +141,7 @@
 
     /* Main Content Container */
     main {
-      max-width: 1060px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }
@@ -155,7 +159,7 @@
       padding: 3rem;
       box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 250px 1fr;
       gap: 3rem;
       align-items: center;
     }
@@ -175,16 +179,17 @@
       gap: 0.5rem;
       background: var(--accent-soft);
       color: var(--accent-text);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 0.35rem 0.85rem;
+      padding: 0.32rem 0.85rem;
       border-radius: 999px;
       margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .hero-content h1 {
       font-family: 'Newsreader', serif;
-      font-size: 2.6rem;
+      font-size: 2.65rem;
       font-weight: 600;
       line-height: 1.15;
       margin-bottom: 0.75rem;
@@ -193,60 +198,32 @@
     .hero-subtitle {
       font-size: 1.05rem;
       color: var(--text-secondary);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .math-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      background: var(--bg-subtle);
+    .hero-quote {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.08rem;
       color: var(--text-primary);
-      padding: 0.3rem 0.65rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.65rem;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
       margin-bottom: 1.5rem;
-    }
-
-    .contact-grid a {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .contact-grid a:hover {
-      color: var(--accent);
     }
 
     .btn-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem;
+      gap: 0.8rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.65rem 1.25rem;
+      padding: 0.62rem 1.2rem;
       border-radius: 10px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
       transition: transform 0.15s ease;
@@ -288,7 +265,7 @@
 
     .section-title {
       font-family: 'Newsreader', serif;
-      font-size: 2rem;
+      font-size: 2.05rem;
       font-weight: 600;
     }
 
@@ -301,7 +278,7 @@
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
@@ -321,7 +298,7 @@
       border-color: var(--accent);
     }
 
-    .card-full {
+    .card-thesis {
       margin-bottom: 1.5rem;
       border-left: 4px solid var(--accent);
     }
@@ -329,7 +306,7 @@
     .card-badge {
       align-self: flex-start;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       background: var(--accent-soft);
       color: var(--accent-text);
       padding: 0.25rem 0.65rem;
@@ -339,7 +316,7 @@
 
     .card h3 {
       font-family: 'Newsreader', serif;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       margin-bottom: 0.35rem;
     }
 
@@ -352,16 +329,8 @@
 
     .card p {
       color: var(--text-secondary);
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       flex: 1;
-    }
-
-    .card-ref {
-      margin-top: 1rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.84rem;
-      color: var(--text-secondary);
     }
 
     .card-link {
@@ -379,65 +348,116 @@
       text-decoration: underline;
     }
 
-    /* Timeline */
-    .timeline {
-      border-left: 2px solid var(--border);
-      margin-left: 0.75rem;
-      padding-left: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    /* Intersection Theory Toolkit Pills */
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
     }
 
-    .timeline-item {
-      position: relative;
-      background: var(--bg-surface);
+    .tool-box {
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.4rem 1.6rem;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+
+    .tool-box .t-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+    }
+
+    .tool-box .t-math {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    /* Compact Box for Non-AG Projects */
+    .compact-strip {
+      margin-top: 1.25rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.35rem;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .compact-strip strong {
+      color: var(--text-primary);
+    }
+
+    /* Interactive Bezout Playground */
+    .play-grid {
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    #toy {
+      width: 100%;
+      height: 430px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      cursor: grab;
+      touch-action: none;
+      display: block;
       box-shadow: var(--shadow);
     }
 
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -2.45rem;
-      top: 1.65rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--bg-main);
+    #toy:active {
+      cursor: grabbing;
     }
 
-    .timeline-year {
+    .play-panel label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin: 1.15rem 0 0.4rem;
+    }
+
+    .play-panel input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .readout {
+      margin-top: 1.35rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
+      font-size: 0.84rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    .readout b {
       color: var(--accent);
       font-weight: 600;
     }
 
-    .timeline-item h3 {
-      font-family: 'Newsreader', serif;
-      font-size: 1.25rem;
-      margin: 0.2rem 0;
-    }
-
-    /* Coursework Pills */
-    .course-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.75rem;
-    }
-
-    .course-pill {
-      font-size: 0.82rem;
+    .type-pill {
+      display: inline-block;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
       background: var(--bg-subtle);
-      color: var(--text-primary);
-      padding: 0.3rem 0.7rem;
-      border-radius: 8px;
       border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 0.76rem;
     }
 
     /* Campus Photo Card */
@@ -447,11 +467,13 @@
       border: 1px solid var(--border);
       background: var(--bg-surface);
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
     }
 
     .campus-showcase img {
       width: 100%;
-      height: 260px;
+      height: 240px;
       object-fit: cover;
       object-position: center 70%;
       display: block;
@@ -459,8 +481,9 @@
 
     .campus-caption {
       padding: 1.25rem 1.5rem;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
+      flex: 1;
     }
 
     footer {
@@ -468,22 +491,28 @@
       background: var(--bg-surface);
       padding: 2.5rem 1.5rem;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-secondary);
     }
 
-    @media (max-width: 780px) {
+    @media (max-width: 820px) {
       .hero-card {
         grid-template-columns: 1fr;
         padding: 2rem 1.5rem;
         text-align: center;
       }
       .profile-frame {
-        max-width: 220px;
+        max-width: 210px;
         margin: 0 auto;
       }
-      .tag-row, .btn-group {
+      .hero-quote {
+        text-align: left;
+      }
+      .btn-group {
         justify-content: center;
+      }
+      .play-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -495,10 +524,9 @@
     <div class="nav-container">
       <a href="#" class="brand">Sarthak Hazra <span>Algebraic Geometry</span></a>
       <ul class="nav-links">
-        <li><a href="#research">Research & Projects</a></li>
-        <li><a href="#talks">Talks & Notes</a></li>
-        <li><a href="#coursework">Coursework</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#playground">Bézout Playground</a></li>
+        <li><a href="#notes">Notes & Talks</a></li>
         <li><a href="#about">About</a></li>
         <li>
           <button class="theme-btn" onclick="toggleTheme()" id="themeToggle">
@@ -518,226 +546,173 @@
           <img src="profile.jpg" alt="Sarthak Hazra" class="profile-photo" />
         </div>
         <div class="hero-content">
-          <div class="status-pill">Fifth-Year BS-MS Student (2022–2027) • GPA: 8.5</div>
+          <div class="status-pill">Algebraic & Enumerative Geometry</div>
           <h1>Sarthak Hazra</h1>
           <p class="hero-subtitle">
-            Department of Mathematics, <strong>IISER Tirupati</strong> &middot; Currently pursuing my Master's thesis in the Department of Mathematical Sciences, <strong>IISER Mohali</strong>.
+            Final-year BS-MS student in Mathematics at <strong>IISER Tirupati</strong>, currently writing my Master's thesis in the Department of Mathematical Sciences at <strong>IISER Mohali</strong>.
           </p>
-
-          <div class="tag-row">
-            <span class="math-tag">Algebraic Geometry</span>
-            <span class="math-tag">Enumerative Geometry</span>
-            <span class="math-tag">Intersection Theory</span>
-            <span class="math-tag">Algebraic Topology</span>
-            <span class="math-tag">Representation Theory</span>
-          </div>
-
-          <div class="contact-grid">
-            <div><strong>Personal:</strong> <a href="mailto:sarthakhazra314@gmail.com">sarthakhazra314@gmail.com</a></div>
-            <div><strong>Institutional:</strong> <a href="mailto:sarthak_20221135@students.iisertirupati.ac.in">sarthak_20221135@students.iisertirupati.ac.in</a></div>
-            <div><strong>Phone:</strong> <a href="tel:+917864905800">+91-7864905800</a></div>
-            <div><strong>Address:</strong> Yerpedu Mandal, Tirupati Dist., AP – 517619</div>
+          <div class="hero-quote">
+            “Interested in problems where a geometric question (‘how many?’) turns into an intersection computation in a ring.”
           </div>
 
           <div class="btn-group">
-            <a href="cv.pdf" target="_blank" class="btn btn-primary">📄 Curriculum Vitae (PDF)</a>
-            <a href="https://www.linkedin.com/in/sarthakhazra" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn Profile ↗</a>
+            <a href="#research" class="btn btn-primary">Explore Research</a>
+            <a href="cv.pdf" target="_blank" class="btn btn-outline">CV (PDF) ↗</a>
+            <a href="mailto:sarthakhazra314@gmail.com" class="btn btn-outline">sarthakhazra314@gmail.com</a>
+            <a href="https://www.linkedin.com/in/sarthakhazra" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn ↗</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH & PROJECTS SECTION -->
+    <!-- RESEARCH SECTION (ALGEBRAIC GEOMETRY FOCUS) -->
     <section id="research">
       <div class="section-header">
-        <span class="section-eyebrow">01 / Research & Experience</span>
-        <h2 class="section-title">MS Thesis & Guided Projects</h2>
+        <span class="section-eyebrow">01 / Algebraic & Enumerative Geometry</span>
+        <h2 class="section-title">Research & Geometric Foundations</h2>
       </div>
 
-      <!-- Featured MS Thesis -->
-      <div class="card card-full">
-        <span class="card-badge">MS Thesis • June 2026 – Present</span>
+      <!-- MS Thesis Card -->
+      <div class="card card-thesis">
+        <span class="card-badge">MS Thesis • IISER Mohali</span>
         <h3>Degrees of Loci in Projective Constructions and their Degenerations</h3>
-        <div class="card-meta">Advisor: Dr. Chetan Tukaram Balwe (IISER Mohali)</div>
+        <div class="card-meta">Supervised by Dr. Chetan Tukaram Balwe</div>
         <p>
-          Investigating the algebraic mechanisms underlying degree-drop phenomena and developing a framework for tracking the degrees of loci generated through sequences of projective constructions and their degenerations. Working through the foundations of algebraic cycles, rational equivalence, the Chow ring $\text{CH}^*(X)$, Cartier divisors, intersection products, and Chern and Segre classes.
+          Many enumerative questions ask for the degree of a locus—a variety cut out by a geometric condition inside a parameter space. When a projective construction degenerates, naive degree counts drop or break as loci acquire excess components. My thesis investigates the algebraic mechanisms behind these degree-drop phenomena using the machinery of William Fulton’s <em>Intersection Theory</em>, where Bézout's theorem in the plane,
+          $$\sum_{p \in C \cap D} i(p; C \cdot D) = \deg C \cdot \deg D,$$
+          is the first chapter of a much larger story.
         </p>
-        <div class="card-ref">
-          <strong>Primary Reference:</strong> <em>Intersection Theory</em> by William Fulton.
+
+        <!-- Intersection Theory Toolkit -->
+        <div class="toolkit-grid">
+          <div class="tool-box">
+            <div class="t-name">Cycles & Rational Equivalence</div>
+            <div class="t-math">$A_k(X) = Z_k(X)/\mathrm{Rat}_k(X)$</div>
+          </div>
+          <div class="tool-box">
+            <div class="t-name">Chow Ring</div>
+            <div class="t-math">$A^*(\mathbb{P}^n) \cong \mathbb{Z}[H]/(H^{n+1})$</div>
+          </div>
+          <div class="tool-box">
+            <div class="t-name">Cartier Divisors</div>
+            <div class="t-math">$D \cdot [V] \in A_{k-1}(|D| \cap V)$</div>
+          </div>
+          <div class="tool-box">
+            <div class="t-name">Intersection Products</div>
+            <div class="t-math">$X \cdot_Y V = \{c(N) \cap s(W,V)\}_k$</div>
+          </div>
         </div>
       </div>
 
-      <!-- 4 Semester & Summer Projects Grid -->
+      <!-- Algebraic Geometry & Scheme Theory Projects -->
       <div class="grid-2">
         <div class="card">
-          <span class="card-badge">Semester Project • Jan – Apr 2026</span>
+          <span class="card-badge">Scheme Theory • IISER Tirupati</span>
           <h3>Introduction to Schemes</h3>
-          <div class="card-meta">Advisor: Prof. D. S. Nagaraj (IISER Tirupati)</div>
+          <div class="card-meta">Advisor: Prof. D. S. Nagaraj</div>
           <p>
-            Studied sheaves and morphisms of sheaves, construction of the prime spectrum $\text{Spec } A$ with the Zariski topology, definitions and properties of schemes, morphisms of schemes, sheaves of modules, and divisors.
+            Studied sheaves, the prime spectrum $\mathrm{Spec}\,A$ with the Zariski topology, morphisms of schemes, quasi-coherent sheaves of modules, and divisors following Robin Hartshorne’s <em>Algebraic Geometry</em> (Chapter II).
           </p>
-          <div class="card-ref">
-            <strong>Reference:</strong> <em>Algebraic Geometry</em> (Chapter II) by Robin Hartshorne.
-          </div>
         </div>
 
         <div class="card">
-          <span class="card-badge">Semester Project • Aug – Dec 2025</span>
-          <h3>Algebraic Geometry</h3>
-          <div class="card-meta">Advisor: Dr. Girja Shanker Tripathi (IISER Tirupati)</div>
+          <span class="card-badge">Classical Varieties • IISER Tirupati</span>
+          <h3>Affine & Projective Algebraic Geometry</h3>
+          <div class="card-meta">Advisor: Dr. Girja Shanker Tripathi</div>
           <p>
-            Explored algebraic sets, Hilbert's Nullstellensatz, the Zariski topology, regular functions and maps, dimension theory, the ringed space structure of affine algebraic varieties, and the local study of tangent spaces, tangent cones, singularities, and regularity.
+            Worked through Hilbert's Nullstellensatz, regular maps, dimension theory, ringed space structures on varieties, tangent spaces, tangent cones, and local singularities following J. S. Milne's notes.
           </p>
-          <div class="card-ref">
-            <strong>Reference:</strong> J. S. Milne's <em>Algebraic Geometry</em> lecture notes.
-          </div>
         </div>
+      </div>
 
-        <div class="card">
-          <span class="card-badge">Summer Project • May – Jul 2025</span>
-          <h3>de Rham Cohomology and Characteristic Classes</h3>
-          <div class="card-meta">Advisor: Dr. Subhash B (IISER Tirupati)</div>
-          <p>
-            Focused on exterior algebra, differential forms, chain complexes, de Rham cohomology, Mayer–Vietoris sequences, homotopy invariance, smooth manifolds, and integration of differential forms to translate analytical problems into cohomological formulations.
-          </p>
-          <div class="card-ref">
-            <strong>Reference:</strong> <em>From Calculus to Cohomology</em> by Ib Madsen and Jørgen Tornehave.
-          </div>
+      <!-- Small Compact Box for Non-AG Reading Projects -->
+      <div class="compact-strip">
+        <div>
+          <strong>Other Guided Explorations:</strong> Also completed reading projects in <strong>de Rham Cohomology & Characteristic Classes</strong> (with Dr. Subhash B) and <strong>Representation Theory of Finite Groups</strong> (with Prof. D. S. Nagaraj).
         </div>
+      </div>
+    </section>
 
-        <div class="card">
-          <span class="card-badge">Semester Reading Project • Dec 2024 – Apr 2025</span>
-          <h3>Representation Theory of Finite Groups</h3>
-          <div class="card-meta">Advisor: Prof. D. S. Nagaraj (IISER Tirupati)</div>
-          <p>
-            Studied group representations, Maschke's theorem, modules over group algebras, irreducible representations, character theory, Schur's lemma, orthogonality relations, induced representations, and tensor products of representations.
+    <!-- PLAYGROUND: BEZOUT LIVE -->
+    <section id="playground">
+      <div class="section-header">
+        <span class="section-eyebrow">02 / Interactive Geometry</span>
+        <h2 class="section-title">Playground: Bézout, live</h2>
+      </div>
+      <p style="color: var(--text-secondary); max-width: 760px; margin-bottom: 1.5rem; font-size: 0.96rem;">
+        Two plane conics meet in $2 \cdot 2 = 4$ points of $\mathbb{P}^2(\mathbb{C})$, counted with multiplicity—even when one of them degenerates into a pair of lines. Drag the second conic $D_\lambda$ on the canvas and slide $\lambda$ to degenerate it. Only the <em>real</em> intersection points are plotted; the remaining roots have become complex conjugates.
+      </p>
+
+      <div class="play-grid">
+        <canvas id="toy" aria-label="Interactive plot of two intersecting conics"></canvas>
+        <div class="card play-panel">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent);">
+            $D_\lambda = \lambda E + (1-\lambda)L_1 L_2$
+          </div>
+          <p style="font-size: 0.84rem; margin-top: 0.4rem;">
+            Drag anywhere on the canvas to translate $D_\lambda$, or use the sliders below:
           </p>
-          <div class="card-ref">
-            <strong>Reference:</strong> <em>Linear Representations of Finite Groups</em> by Jean-Pierre Serre & lectures by Prof. D. S. Nagaraj.
+
+          <label for="lam">
+            <span>Deformation $\lambda$</span>
+            <span id="lamVal" style="font-family: 'JetBrains Mono', monospace;">0.80</span>
+          </label>
+          <input id="lam" type="range" min="0" max="1" step="0.005" value="0.8">
+
+          <label for="rot">
+            <span>Rotation $\theta$</span>
+          </label>
+          <input id="rot" type="range" min="0" max="6.2832" step="0.01" value="0.5">
+
+          <div class="readout">
+            <div>Locus type: <span class="type-pill" id="type">ellipse</span></div>
+            <div>Real intersections: <b id="realN">4</b></div>
+            <div>Complex points: <b id="cplxN">0</b></div>
+            <div>Total in $\mathbb{P}^2(\mathbb{C})$: <b>4</b></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TALKS & EXPOSITORY NOTES SECTION -->
-    <section id="talks">
+    <!-- NOTES & TALKS SECTION -->
+    <section id="notes">
       <div class="section-header">
-        <span class="section-eyebrow">02 / Expository Writing & Seminars</span>
-        <h2 class="section-title">Talks & Mathematical Notes</h2>
-      </div>
-
-      <div class="grid-2" style="margin-bottom: 1.5rem;">
-        <div class="card">
-          <span class="card-badge">Student Talk • 15 April 2026</span>
-          <h3>Classification Theorem of Principal $G$-Bundles</h3>
-          <p>
-            Presented the classification of principal $G$-bundles over paracompact spaces via pullbacks of universal bundles over classifying spaces $BG$.
-          </p>
-          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Read Accompanying Notes (PDF) →</a>
-        </div>
-
-        <div class="card">
-          <span class="card-badge">Student Talk • 2025</span>
-          <h3>Proof of Hilbert's Nullstellensatz</h3>
-          <p>
-            Expository seminar talk on Hilbert's Nullstellensatz and the correspondence between radical ideals in $k[x_1,\dots,x_n]$ and algebraic sets in $\mathbb{A}^n_k$.
-          </p>
-        </div>
+        <span class="section-eyebrow">03 / Expository Writing & Seminars</span>
+        <h2 class="section-title">Notes & Talks</h2>
       </div>
 
       <div class="grid-3">
         <div class="card">
-          <span class="card-badge">Bundles & Topology</span>
+          <span class="card-badge">Talk & Notes • Bundles</span>
           <h3>Classification of Principal $G$-Bundles</h3>
-          <p>Expository notes on fiber bundles, transition functions, and homotopy classes $[X, BG]$.</p>
-          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Open PDF →</a>
-        </div>
-
-        <div class="card">
-          <span class="card-badge">Functional Analysis</span>
-          <h3>The Norm of a Multiplication Operator on $L^2$</h3>
-          <p>Proof and analysis showing $\|M_\phi\| = \|\phi\|_\infty$ for bounded measurable functions on $L^2$.</p>
-          <a href="multiplication-operator.pdf" target="_blank" class="card-link">Open PDF →</a>
+          <p>
+            Expository notes and student talk on classifying spaces $BG$ and the bijection $[X, BG] \cong \mathrm{Prin}_G(X)$.
+          </p>
+          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
         </div>
 
         <div class="card">
           <span class="card-badge">Algebraic Topology</span>
           <h3>Homology of the Sphere</h3>
-          <p>Computation of the reduced homology groups $\tilde{H}_k(S^n; \mathbb{Z})$ of $n$-spheres.</p>
-          <a href="homology-sphere.pdf" target="_blank" class="card-link">Open PDF →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSEWORK SECTION -->
-    <section id="coursework">
-      <div class="section-header">
-        <span class="section-eyebrow">03 / Academic Foundation</span>
-        <h2 class="section-title">Relevant Coursework</h2>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Algebra & Number Theory</h3>
-          <div class="course-list">
-            <span class="course-pill">Abstract Algebra</span>
-            <span class="course-pill">Rings & Modules</span>
-            <span class="course-pill">Fields & Galois Theory</span>
-            <span class="course-pill">Commutative Algebra</span>
-            <span class="course-pill">Classical Groups</span>
-            <span class="course-pill">Representation Theory of Finite Groups</span>
-            <span class="course-pill">Elementary Number Theory</span>
-          </div>
+          <p>
+            Computing the reduced homology groups $\tilde{H}_k(S^n; \mathbb{Z}) \cong \mathbb{Z}$ for $k=n$ and $0$ otherwise.
+          </p>
+          <a href="homology-sphere.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
         </div>
 
         <div class="card">
-          <h3>Topology & Geometry</h3>
-          <div class="course-list">
-            <span class="course-pill">Point-Set Topology</span>
-            <span class="course-pill">Algebraic Topology I & II</span>
-            <span class="course-pill">Differentiable Manifolds & Lie Groups</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Analysis & Differential Equations</h3>
-          <div class="course-list">
-            <span class="course-pill">Real Analysis I & II</span>
-            <span class="course-pill">Complex Analysis</span>
-            <span class="course-pill">Measure Theory & Integration</span>
-            <span class="course-pill">Analysis on Euclidean Space</span>
-            <span class="course-pill">Functional Analysis</span>
-            <span class="course-pill">Ordinary Differential Equations</span>
-          </div>
+          <span class="card-badge">Operator Theory</span>
+          <h3>The Norm of a Multiplication Operator on $L^2$</h3>
+          <p>
+            Expository note establishing $\|M_\varphi\| = \|\varphi\|_\infty$ for $\varphi \in L^\infty$.
+          </p>
+          <a href="multiplication-operator.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
         </div>
       </div>
-    </section>
 
-    <!-- EDUCATION SECTION -->
-    <section id="education">
-      <div class="section-header">
-        <span class="section-eyebrow">04 / Academic Trajectory</span>
-        <h2 class="section-title">Education</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-year">2022 – 2027</span>
-          <h3>Bachelor of Science and Master of Science (BS-MS Dual Degree)</h3>
-          <p><strong>Department of Mathematics</strong>, Indian Institute of Science Education and Research (IISER), Tirupati</p>
-          <p style="font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-top: 0.25rem;">GPA: 8.5 / 10.0</p>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-year">Higher Secondary Education (Class XII)</span>
-          <h3>Seva Milani High School, Berhampur, West Bengal</h3>
-          <p>West Bengal Council of Higher Secondary Education (WBCHSE Board)</p>
-        </div>
-
-        <div class="timeline-item">
-          <span class="timeline-year">Secondary Education (Class X)</span>
-          <h3>Krishnath College School, Berhampur, West Bengal</h3>
-          <p>West Bengal Board of Secondary Education (WBBSE Board)</p>
+      <div class="compact-strip">
+        <div>
+          <strong>Additional Seminar Talk:</strong> Delivered an expository student talk on the proof of <strong>Hilbert's Nullstellensatz</strong> and classical affine varieties.
         </div>
       </div>
     </section>
@@ -745,21 +720,21 @@
     <!-- ABOUT & BEYOND MATH SECTION -->
     <section id="about">
       <div class="section-header">
-        <span class="section-eyebrow">05 / Community & Personal</span>
-        <h2 class="section-title">Beyond Research</h2>
+        <span class="section-eyebrow">04 / Path & Beyond Math</span>
+        <h2 class="section-title">About Me</h2>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>Community, Languages & Interests</h3>
-          <p style="margin-top: 0.5rem;">
-            <strong>Math Club Leadership:</strong> Active member and former core team member of the <strong>IISER Tirupati Math Club</strong>.
+          <h3>Background & Off-Duty</h3>
+          <p style="margin-top: 0.4rem;">
+            I joined <strong>IISER Tirupati</strong> in 2022 for my integrated BS-MS in Mathematics (after completing my schooling at <em>Seva Milani High School</em> and <em>Krishnath College School</em> in Berhampur, West Bengal) and have also been part of the core team of the <strong>IISER Tirupati Math Club</strong>.
           </p>
-          <p style="margin-top: 0.85rem;">
-            <strong>Personal Interests:</strong> Outside of algebraic geometry and intersection theory, I enjoy quiet evening walks and exploring diverse cinema—I particularly appreciate brilliant Indian films.
+          <p style="margin-top: 1rem;">
+            When I step away from intersection rings and projective degenerations, I enjoy quiet evening walks—where most proofs actually get unstuck—and exploring diverse cinema, with a special fondness for brilliant Indian films.
           </p>
-          <p style="margin-top: 0.85rem;">
-            <strong>Languages:</strong> Bengali (Native), English (Professional working proficiency), and Hindi (Professional working proficiency).
+          <p style="margin-top: 1rem; font-size: 0.88rem;">
+            <strong>Institutional Email:</strong> <a href="mailto:sarthak_20221135@students.iisertirupati.ac.in" style="color: var(--accent); text-decoration: none;">sarthak_20221135@students.iisertirupati.ac.in</a>
           </p>
         </div>
 
@@ -779,6 +754,7 @@
   </footer>
 
   <script>
+    /* ---------- Dark / Light Theme Toggle ---------- */
     function toggleTheme() {
       const html = document.documentElement;
       const btn = document.getElementById('themeToggle');
@@ -791,14 +767,176 @@
         btn.textContent = '🌙 Dark Mode';
         localStorage.setItem('theme', 'light');
       }
+      window.dispatchEvent(new Event('themechange'));
     }
 
-    // Load saved theme preference (defaults to smooth dark mode)
     const saved = localStorage.getItem('theme');
     if (saved === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
       document.getElementById('themeToggle').textContent = '🌙 Dark Mode';
     }
+
+    /* ---------- Marching Squares + Interactive Bezout Conics ---------- */
+    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+    function march(ctx, W, H, step, F) {
+      const nx = Math.ceil(W / step) + 1, ny = Math.ceil(H / step) + 1;
+      const v = new Float32Array(nx * ny);
+      for (let j = 0; j < ny; j++) {
+        for (let i = 0; i < nx; i++) {
+          v[j * nx + i] = F(i * step, j * step);
+        }
+      }
+      ctx.beginPath();
+      for (let j = 0; j < ny - 1; j++) {
+        for (let i = 0; i < nx - 1; i++) {
+          const a = v[j * nx + i], b = v[j * nx + i + 1], c = v[(j + 1) * nx + i + 1], d = v[(j + 1) * nx + i];
+          const x = i * step, y = j * step, p = [];
+          if ((a > 0) !== (b > 0)) p.push(x + step * a / (a - b), y);
+          if ((b > 0) !== (c > 0)) p.push(x + step, y + step * b / (b - c));
+          if ((c > 0) !== (d > 0)) p.push(x + step - step * c / (c - d), y + step);
+          if ((d > 0) !== (a > 0)) p.push(x, y + step - step * d / (d - a));
+          if (p.length >= 4) { ctx.moveTo(p[0], p[1]); ctx.lineTo(p[2], p[3]); }
+          if (p.length === 8) { ctx.moveTo(p[4], p[5]); ctx.lineTo(p[6], p[7]); }
+        }
+      }
+      ctx.stroke();
+    }
+
+    function fitCanvas(cv) {
+      const r = cv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = r.width * dpr;
+      cv.height = r.height * dpr;
+      const ctx = cv.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return { ctx, W: r.width, H: r.height };
+    }
+
+    (function() {
+      const cv = document.getElementById('toy'), lam = document.getElementById('lam'), rot = document.getElementById('rot');
+      let ctx, W, H, S, ox, oy, cx = 0.35, cy = 0.15, drag = false;
+      const a = 1.5, b = 0.9, p = 1.25, q = 0.55;
+
+      function D(x, y) {
+        const l = +lam.value, th = +rot.value, X = x - cx, Y = y - cy;
+        const u = X * Math.cos(th) + Y * Math.sin(th), v = -X * Math.sin(th) + Y * Math.cos(th);
+        return u * u / (p * p) + (2 * l - 1) * v * v / (q * q) - l;
+      }
+
+      function setup() {
+        ({ ctx, W, H } = fitCanvas(cv));
+        S = Math.min(W / 4.6, H / 3.2);
+        ox = W / 2;
+        oy = H / 2;
+        draw();
+      }
+
+      function roots() {
+        const N = 900, pts = [], f = t => D(a * Math.cos(t), b * Math.sin(t));
+        let t0 = 0, f0 = f(0);
+        for (let k = 1; k <= N; k++) {
+          const t1 = 2 * Math.PI * k / N, f1 = f(t1);
+          if ((f0 > 0) !== (f1 > 0)) {
+            let lo = t0, hi = t1, flo = f0;
+            for (let it = 0; it < 40; it++) {
+              const m = (lo + hi) / 2, fm = f(m);
+              if ((fm > 0) === (flo > 0)) { lo = m; flo = fm; } else hi = m;
+            }
+            const t = (lo + hi) / 2;
+            pts.push([a * Math.cos(t), b * Math.sin(t)]);
+          }
+          t0 = t1; f0 = f1;
+        }
+        return pts;
+      }
+
+      function draw() {
+        const l = +lam.value;
+        document.getElementById('lamVal').textContent = l.toFixed(2);
+        ctx.clearRect(0, 0, W, H);
+
+        // Coordinate axes
+        ctx.strokeStyle = css('--border');
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, oy); ctx.lineTo(W, oy);
+        ctx.moveTo(ox, 0); ctx.lineTo(ox, H);
+        ctx.stroke();
+
+        // Fixed Conic C
+        ctx.strokeStyle = css('--accent-2');
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.ellipse(ox, oy, a * S, b * S, 0, 0, 7);
+        ctx.stroke();
+
+        // Deforming Conic D_lambda
+        ctx.strokeStyle = css('--accent');
+        ctx.lineWidth = 2.2;
+        march(ctx, W, H, 4, (px, py) => D((px - ox) / S, -(py - oy) / S));
+
+        // Curve Labels
+        ctx.font = '13px "JetBrains Mono", monospace';
+        ctx.fillStyle = css('--accent-2');
+        ctx.fillText('C', ox + a * S * 0.72 + 6, oy - b * S * 0.72 - 6);
+        ctx.fillStyle = css('--accent');
+        ctx.fillText('D_λ', ox + cx * S + 8, oy - cy * S - 8);
+
+        // Real Intersection Points
+        const r = roots();
+        for (const [x, y] of r) {
+          ctx.fillStyle = css('--text-primary');
+          ctx.beginPath();
+          ctx.arc(ox + x * S, oy - y * S, 5.5, 0, 7);
+          ctx.fill();
+          ctx.strokeStyle = css('--bg-surface');
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
+
+        // Drag Handle
+        ctx.fillStyle = css('--accent');
+        ctx.globalAlpha = 0.35;
+        ctx.beginPath();
+        ctx.arc(ox + cx * S, oy - cy * S, 9, 0, 7);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+
+        const n = Math.min(r.length, 4);
+        document.getElementById('realN').textContent = n;
+        document.getElementById('cplxN').textContent = 4 - n;
+
+        let type = l < 0.012 ? 'two crossing lines (degenerate)'
+                 : Math.abs(l - 0.5) < 0.01 ? 'two parallel lines (degenerate)'
+                 : l > 0.5 ? 'ellipse' : 'hyperbola';
+        document.getElementById('type').textContent = type;
+      }
+
+      const toWorld = e => {
+        const r = cv.getBoundingClientRect();
+        return [(e.clientX - r.left - ox) / S, -(e.clientY - r.top - oy) / S];
+      };
+
+      cv.addEventListener('pointerdown', e => {
+        drag = true;
+        cv.setPointerCapture(e.pointerId);
+        [cx, cy] = toWorld(e);
+        draw();
+      });
+      cv.addEventListener('pointermove', e => {
+        if (drag) {
+          [cx, cy] = toWorld(e);
+          draw();
+        }
+      });
+      cv.addEventListener('pointerup', () => drag = false);
+
+      lam.oninput = draw;
+      rot.oninput = draw;
+      setup();
+      window.addEventListener('resize', setup);
+      window.addEventListener('themechange', draw);
+    })();
   </script>
 </body>
 </html>
