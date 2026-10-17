@@ -1,21 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sarthak Hazra</title>
-  <!-- Google Fonts matching your Google Site theme -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
+  <title>Sarthak Hazra | Algebraic & Enumerative Geometry</title>
+
+  <!-- Modern Academic Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- MathJax for Beautiful LaTeX Rendering -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
   <style>
-    :root {
-      --brown-heading: #7c6340;
-      --gold-bar: #c9a23f;
-      --text-dark: #212121;
-      --text-muted: #5f6368;
-      --sidebar-width: 250px;
-      --border-color: #e0e0e0;
-      --footer-bg: #f2efe9;
+    :root[data-theme="light"] {
+      --bg-main: #fafaf9;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f4f4f0;
+      --text-primary: #18181b;
+      --text-secondary: #52525b;
+      --accent: #0f766e;
+      --accent-soft: #ccfbf1;
+      --accent-text: #115e59;
+      --border: #e4e4e7;
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+      --nav-bg: rgba(250, 250, 249, 0.85);
+    }
+
+    :root[data-theme="dark"] {
+      --bg-main: #090d16;
+      --bg-surface: #111827;
+      --bg-subtle: #1e293b;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --accent: #2dd4bf;
+      --accent-soft: rgba(45, 212, 191, 0.12);
+      --accent-text: #5eead4;
+      --border: #1f2937;
+      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --nav-bg: rgba(9, 13, 22, 0.85);
     }
 
     * {
@@ -24,510 +51,626 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Open Sans', sans-serif;
-      color: var(--text-dark);
-      background-color: #ffffff;
-      display: flex;
-      min-height: 100vh;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.7;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
 
-    /* Left Sidebar Navigation */
-    .sidebar {
-      width: var(--sidebar-width);
-      border-right: 1px solid var(--border-color);
-      padding: 3.5rem 1.75rem;
-      position: fixed;
+    /* Glassmorphism Top Navbar */
+    header {
+      position: sticky;
       top: 0;
-      left: 0;
-      bottom: 0;
-      background: #ffffff;
       z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .site-title {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--brown-heading);
-      padding-bottom: 1.25rem;
-      margin-bottom: 1.75rem;
-      border-bottom: 1px solid var(--brown-heading);
-      cursor: pointer;
-      display: block;
+    .nav-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: 'Newsreader', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
       text-decoration: none;
+      letter-spacing: -0.3px;
     }
 
-    .sidebar nav ul {
+    .brand span {
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      margin-left: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
       list-style: none;
+      flex-wrap: wrap;
     }
 
-    .sidebar nav li {
-      margin-bottom: 1.15rem;
-    }
-
-    .sidebar nav a {
+    .nav-links a {
       text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 400;
-      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      font-weight: 500;
       transition: color 0.2s;
     }
 
-    .sidebar nav a:hover {
-      color: var(--text-dark);
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
-    .sidebar nav a.active {
-      color: var(--text-dark);
-      font-weight: 600;
-    }
-
-    /* Main Content Area */
-    .main-wrapper {
-      margin-left: var(--sidebar-width);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .page-section {
-      display: none;
-      flex: 1;
-      flex-direction: column;
-    }
-
-    .page-section.active {
-      display: flex;
-    }
-
-    /* Top Page Banners */
-    .banner {
-      width: 100%;
-      height: 310px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
+    .theme-btn {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 0.35rem;
     }
 
-    .banner-overlay {
-      background: rgba(0, 0, 0, 0.38);
-      position: absolute;
-      inset: 0;
-    }
-
-    .banner-title-box {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: #ffffff;
-    }
-
-    .banner-title-box h1 {
-      font-family: 'Lora', serif;
-      font-size: 3.1rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.6rem;
-    }
-
-    .banner-title-box.sans h1 {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 600;
-    }
-
-    .gold-underline {
-      width: 78px;
-      height: 8px;
-      background-color: var(--gold-bar);
+    /* Main Wrapper */
+    main {
+      max-width: 1040px;
       margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
     }
 
-    /* Specific Page Banners */
-    /* 1. Home Banner (Upload your Map of Math image as home-banner.jpg) */
-    .banner-home {
-      background-image: url('home-banner.jpg'), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=80');
-      background-position: center;
+    section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 90px;
     }
 
-    /* 2. About Me Banner (Uses your exact uploaded photo IMG20260402182126.jpg) */
-    .banner-about {
-      background-image: url('IMG20260402182126.jpg');
-      background-position: center 72%;
-    }
-
-    /* 3. Notes Banner (Bookshelf stock photo) */
-    .banner-notes {
-      background-image: url('https://images.unsplash.com/photo-1507842229356-51c61504d3ab?auto=format&fit=crop&w=1600&q=80');
-    }
-
-    /* 4. Education Banner (Vintage typewriter keys stock photo) */
-    .banner-education {
-      background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1600&q=80');
-    }
-
-    /* 5. Research Banner (Chalkboard math stock photo) */
-    .banner-research {
-      background-image: url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1600&q=80');
-    }
-
-    /* Content Container inside each page */
-    .content-container {
-      max-width: 980px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 3.5rem 3rem;
-      flex: 1;
-    }
-
-    /* Home Page Layout */
-    .home-grid {
+    /* Hero Section */
+    .hero-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
       display: grid;
-      grid-template-columns: 310px 1fr;
-      gap: 4rem;
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
       align-items: center;
+    }
+
+    .profile-frame {
+      position: relative;
     }
 
     .profile-photo {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid var(--border);
       display: block;
-      background-color: #f3f4f6;
     }
 
-    .home-info h2 {
-      font-family: 'Lora', serif;
-      font-size: 1.85rem;
-      color: var(--brown-heading);
-      margin-bottom: 1.35rem;
-      font-weight: 700;
-    }
-
-    .home-info p {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      margin-bottom: 0.85rem;
-      color: var(--text-dark);
-    }
-
-    .home-info .normal-text {
-      font-family: 'Open Sans', sans-serif;
-      font-style: normal;
-      font-size: 0.96rem;
-    }
-
-    .email-indent {
-      padding-left: 3.5rem;
-    }
-
-    /* Home Footer with LinkedIn Button */
-    .home-footer {
-      background-color: var(--footer-bg);
-      padding: 2.25rem;
-      text-align: center;
-      border-top: 1px solid var(--border-color);
-      margin-top: auto;
-    }
-
-    .linkedin-icon {
+    .status-pill {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background-color: #0a66c2;
-      color: #ffffff;
+      gap: 0.5rem;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Newsreader', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .math-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      padding: 0.3rem 0.65rem;
       border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.65rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-grid a {
+      color: var(--text-primary);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1.2rem;
-      font-family: sans-serif;
+      font-weight: 500;
     }
 
-    /* Typography for Subpages */
-    .subpage-text p {
-      font-size: 0.98rem;
-      line-height: 1.75;
-      margin-bottom: 1.4rem;
-      color: var(--text-dark);
+    .contact-grid a:hover {
+      color: var(--accent);
     }
 
-    .serif-italic {
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 1.03rem;
+    .btn-group {
+      display: flex;
+      wrap: wrap;
+      gap: 0.85rem;
     }
 
-    .section-heading {
-      font-family: 'Lora', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--brown-heading);
-      margin-top: 1.5rem;
-      margin-bottom: 1.2rem;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
-    .section-heading:first-child {
-      margin-top: 0;
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    /* Notes List */
-    .notes-list {
-      list-style-type: square;
-      padding-left: 1.5rem;
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
     }
 
-    .notes-list li {
-      margin-bottom: 0.75rem;
-      font-size: 0.98rem;
+    :root[data-theme="dark"] .btn-primary {
+      color: #090d16;
     }
 
-    .notes-list a,
-    .subpage-text a {
-      color: var(--text-dark);
-      text-decoration: underline;
+    .btn-outline {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
     }
 
-    /* Education Blocks */
-    .edu-block {
-      margin-bottom: 2.2rem;
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 2rem;
     }
 
-    .edu-title {
-      font-family: 'Lora', serif;
-      font-weight: 700;
-      font-style: italic;
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
+    .section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      display: block;
     }
 
-    .edu-title.brown {
-      color: var(--brown-heading);
-      font-style: normal;
+    .section-title {
+      font-family: 'Newsreader', serif;
+      font-size: 2rem;
+      font-weight: 600;
     }
 
-    .edu-details {
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.85rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .card-badge {
+      align-self: flex-start;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-meta {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .card-link {
+      margin-top: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .card-link:hover {
+      color: var(--accent);
+    }
+
+    /* Timeline for Education */
+    .timeline {
+      border-left: 2px solid var(--border);
+      margin-left: 0.75rem;
       padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
-    .edu-details p {
-      margin-bottom: 0.6rem;
-      font-size: 0.96rem;
+    .timeline-item {
+      position: relative;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
     }
 
-    /* Responsive Mobile Layout */
-    @media (max-width: 850px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        position: static;
-        width: 100%;
-        padding: 1.5rem;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-      }
-      .sidebar nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-      .sidebar nav li {
-        margin-bottom: 0;
-      }
-      .main-wrapper {
-        margin-left: 0;
-      }
-      .home-grid {
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -2.45rem;
+      top: 1.75rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg-main);
+    }
+
+    .timeline-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .timeline-item h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.25rem;
+      margin: 0.25rem 0;
+    }
+
+    /* Campus Photo Card in About Section */
+    .campus-showcase {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      box-shadow: var(--shadow);
+    }
+
+    .campus-showcase img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center 70%;
+      display: block;
+    }
+
+    .campus-caption {
+      padding: 1.25rem 1.5rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-surface);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 780px) {
+      .hero-card {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
       }
-      .profile-photo {
-        max-width: 260px;
+      .profile-frame {
+        max-width: 220px;
         margin: 0 auto;
       }
-      .content-container {
-        padding: 2rem 1.5rem;
-      }
-      .banner {
-        height: 220px;
-      }
-      .banner-title-box h1 {
-        font-size: 2.2rem;
+      .tag-row, .btn-group {
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Left Sidebar Navigation -->
-  <aside class="sidebar">
-    <a class="site-title" onclick="switchPage('home')">Sarthak Hazra</a>
-    <nav>
-      <ul>
-        <li><a id="link-home" class="active" onclick="switchPage('home')">Home</a></li>
-        <li><a id="link-about" onclick="switchPage('about')">About Me</a></li>
-        <li><a id="link-notes" onclick="switchPage('notes')">Some of my notes</a></li>
-        <li><a id="link-education" onclick="switchPage('education')">Education</a></li>
-        <li><a id="link-research" onclick="switchPage('research')">Research</a></li>
+  <!-- Top Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">Sarthak Hazra <span>$\pi \approx 3.14$</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#notes">Expository Notes</a></li>
+        <li><a href="#education">Education</a></li>
+        <li>
+          <button class="theme-btn" onclick="toggleTheme()" id="themeToggle">
+            🌙 Dark Mode
+          </button>
+        </li>
       </ul>
-    </nav>
-  </aside>
+    </div>
+  </header>
 
-  <!-- Main Content Area -->
-  <div class="main-wrapper">
+  <main>
 
-    <!-- 1. HOME PAGE -->
-    <section id="page-home" class="page-section active">
-      <div class="banner banner-home"></div>
-      <div class="content-container">
-        <div class="home-grid">
-          <div>
-            <img src="profile.jpg" alt="Sarthak Hazra" class="profile-photo" />
+    <!-- HERO SECTION -->
+    <section id="home">
+      <div class="hero-card">
+        <div class="profile-frame">
+          <img src="profile.jpg" alt="Sarthak Hazra" class="profile-photo" />
+        </div>
+        <div class="hero-content">
+          <div class="status-pill">BS-MS Dual Degree Candidate (2022–2027)</div>
+          <h1>Sarthak Hazra</h1>
+          <p class="hero-subtitle">
+            Fifth-year undergraduate in the <strong>Department of Mathematics, IISER Tirupati</strong>, currently pursuing my Master's thesis in the <strong>Department of Mathematical Sciences, IISER Mohali</strong>.
+          </p>
+
+          <div class="tag-row">
+            <span class="math-tag">Algebraic Geometry</span>
+            <span class="math-tag">Enumerative Geometry</span>
+            <span class="math-tag">Intersection Theory</span>
+            <span class="math-tag">Algebraic Topology</span>
+            <span class="math-tag">Representation Theory</span>
           </div>
-          <div class="home-info">
-            <h2>Fifth Year Undergraduate Student</h2>
-            <p>Department of Mathematics, Indian Institute of Science Education and Research, Tirupati</p>
-            <p class="normal-text">Address:- Srinivasapuram, Yerpedu Mandal, Tirupati Dist, Andhra Pradesh, India – 517619</p>
-            <p>Email:- sarthakhazra314@gmail.com</p>
-            <p class="email-indent">sarthak_20221135@students.iisertirupati.ac.in</p>
-            <p class="normal-text">Phone:- +91 7864905800</p>
+
+          <div class="contact-grid">
+            <div><strong>Personal:</strong> <a href="mailto:sarthakhazra314@gmail.com">sarthakhazra314@gmail.com</a></div>
+            <div><strong>Institutional:</strong> <a href="mailto:sarthak_20221135@students.iisertirupati.ac.in">sarthak_20221135@students.iisertirupati.ac.in</a></div>
+            <div><strong>Phone:</strong> <a href="tel:+917864905800">+91 7864905800</a></div>
+            <div><strong>Location:</strong> IISER Tirupati / IISER Mohali, India</div>
           </div>
-        </div>
-      </div>
-      <div class="home-footer">
-        <a href="https://www.linkedin.com/in/sarthakhazra" target="_blank" rel="noopener noreferrer" class="linkedin-icon" title="LinkedIn">
-          in
-        </a>
-      </div>
-    </section>
 
-    <!-- 2. ABOUT ME PAGE -->
-    <section id="page-about" class="page-section">
-      <div class="banner banner-about">
-        <div class="banner-overlay"></div>
-        <div class="banner-title-box">
-          <h1>About Me</h1>
-          <div class="gold-underline"></div>
-        </div>
-      </div>
-      <div class="content-container subpage-text">
-        <p>
-          I am a final year BS-MS student at the Indian Institute of Science Education and Research (IISER), Tirupati. Currently, I am pursuing my MS thesis in the Department of Mathematical Sciences at the Indian Institute of Science Education and Research (IISER), Mohali.
-        </p>
-        <p>
-          I have completed the coursework for my Integrated BS-MS degree in Mathematics at IISER Tirupati. During my time there, I undertook semester projects in algebraic geometry under the guidance of Dr. Girja Shanker Tripathi <span class="serif-italic">and scheme theory under the guidance of Prof. D.S. Nagaraj.</span>
-        </p>
-        <p class="serif-italic">
-          Besides mathematics, I enjoy evening walks and exploring diverse cinema—I particularly appreciate brilliant Indian films.
-        </p>
-        <p class="serif-italic">
-          For more detailed information, please find my updated CV <a href="cv.pdf" target="_blank">here</a>.
-        </p>
-      </div>
-    </section>
-
-    <!-- 3. SOME OF MY NOTES PAGE -->
-    <section id="page-notes" class="page-section">
-      <div class="banner banner-notes">
-        <div class="banner-overlay"></div>
-        <div class="banner-title-box sans">
-          <h1>Some of my notes</h1>
-          <div class="gold-underline"></div>
-        </div>
-      </div>
-      <div class="content-container">
-        <ul class="notes-list">
-          <li>Classification of Principal G-Bundles <a href="principal-g-bundles.pdf" target="_blank">notes</a>.</li>
-          <li>The Norm of a Multiplication Operator on <i>L</i>^2 <a href="multiplication-operator.pdf" target="_blank">notes</a>.</li>
-          <li>Homology of the Sphere <a href="homology-sphere.pdf" target="_blank">notes</a>.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 4. EDUCATION PAGE -->
-    <section id="page-education" class="page-section">
-      <div class="banner banner-education">
-        <div class="banner-overlay"></div>
-        <div class="banner-title-box sans">
-          <h1>Education</h1>
-          <div class="gold-underline"></div>
-        </div>
-      </div>
-      <div class="content-container">
-        <div class="edu-block">
-          <div class="edu-title">Bachelor of Sciences and Master of Science (BS-MS) (2022-2027)</div>
-          <div class="edu-details">
-            <p>Department of Mathematics</p>
-            <p class="serif-italic">Indian Institute of Science Education and Research, Tirupati</p>
-          </div>
-        </div>
-
-        <div class="edu-block">
-          <div class="edu-title">Higher Secondary Education</div>
-          <div class="edu-details">
-            <p>Seva Milani High School, Berhampur, West Bengal</p>
-            <p class="serif-italic">WBCHSE Board</p>
-          </div>
-        </div>
-
-        <div class="edu-block">
-          <div class="edu-title brown">Secondary Education</div>
-          <div class="edu-details">
-            <p>Krishnath College School, Berhampur, West Bengal</p>
-            <p class="serif-italic">WBBSE Board</p>
+          <div class="btn-group">
+            <a href="cv.pdf" target="_blank" class="btn btn-primary">📄 Curriculum Vitae (PDF)</a>
+            <a href="https://www.linkedin.com/in/sarthakhazra" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn Profile ↗</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. RESEARCH PAGE -->
-    <section id="page-research" class="page-section">
-      <div class="banner banner-research">
-        <div class="banner-overlay"></div>
-        <div class="banner-title-box">
-          <h1>Research</h1>
-          <div class="gold-underline"></div>
-        </div>
+    <!-- RESEARCH SECTION -->
+    <section id="research">
+      <div class="section-header">
+        <span class="section-eyebrow">01 / Mathematical Inquiry</span>
+        <h2 class="section-title">Research & Projects</h2>
       </div>
-      <div class="content-container subpage-text">
-        <h2 class="section-heading">Research Interests:-</h2>
-        <p class="serif-italic">
-          My research interest lies in Algebraic Geometry. More specifically, I am interested in Enumerative Geometry and Intersection Theory problems.
-        </p>
 
-        <h2 class="section-heading">Current project</h2>
-        <p>
-          I am working under the supervision of Dr. <span class="serif-italic">Chetan Tukaram Balwe. My thesis project focuses on Enumerative Geometry, specifically exploring the degrees of loci in projective constructions and their degenerations. As part of</span> this project, I am currently studying <strong>intersection theory from Fulton’s Intersection Theory</strong>, focusing on the foundations of cycles, Chow ring, Cartier divisors, intersection products, and the construction of Chern and Segre classes.
-        </p>
-        <p class="serif-italic">
-          My broader research interests lie in Algebraic Geometry, Algebraic Topology, and Representation Theory. More specifically, I am interested in Enumerative Geometry and Intersection theory.
-        </p>
+      <div class="grid-2">
+        <!-- MS Thesis Card -->
+        <div class="card">
+          <span class="card-badge">Current MS Thesis • IISER Mohali</span>
+          <h3>Enumerative Geometry & Intersection Theory</h3>
+          <div class="card-meta">Supervisor: Dr. Chetan Tukaram Balwe</div>
+          <p>
+            Exploring the degrees of loci in projective constructions and their degenerations. Currently studying intersection theory from William Fulton’s <em>Intersection Theory</em>—focusing on the foundations of algebraic cycles, the Chow ring $\text{CH}^*(X)$, Cartier divisors, intersection products, and the construction of Chern and Segre classes.
+          </p>
+        </div>
+
+        <!-- Past Semester Projects Card -->
+        <div class="card">
+          <span class="card-badge">Semester Projects • IISER Tirupati</span>
+          <h3>Foundations of Algebraic Geometry & Scheme Theory</h3>
+          <div class="card-meta">Supervisors: Prof. D.S. Nagaraj & Dr. Girja Shanker Tripathi</div>
+          <p>
+            Completed all core and advanced coursework for the Integrated BS-MS degree in Mathematics at IISER Tirupati, alongside guided reading and semester projects in classical algebraic geometry (with Dr. Girja Shanker Tripathi) and the theory of schemes and sheaves (with Prof. D.S. Nagaraj).
+          </p>
+        </div>
       </div>
     </section>
 
-  </div>
+    <!-- EXPOSITORY NOTES SECTION -->
+    <section id="notes">
+      <div class="section-header">
+        <span class="section-eyebrow">02 / Expository Writing</span>
+        <h2 class="section-title">Some of My Notes</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="card-badge">Bundles & Topology</span>
+          <h3>Classification of Principal $G$-Bundles</h3>
+          <p>
+            Expository notes examining principal fiber bundles, transition functions, and classifying spaces $BG$ for topological groups.
+          </p>
+          <a href="principal-g-bundles.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Functional Analysis</span>
+          <h3>The Norm of a Multiplication Operator on $L^2$</h3>
+          <p>
+            A rigorous look at boundedness, operator norms $\|M_\phi\| = \|\phi\|_\infty$, and spectral properties of multiplication operators on $L^2$ spaces.
+          </p>
+          <a href="multiplication-operator.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
+        </div>
+
+        <div class="card">
+          <span class="card-badge">Algebraic Topology</span>
+          <h3>Homology of the Sphere</h3>
+          <p>
+            Computation and geometric intuition behind the singular and cellular homology groups $H_k(S^n; \mathbb{Z})$ of $n$-dimensional spheres.
+          </p>
+          <a href="homology-sphere.pdf" target="_blank" class="card-link">Read PDF Notes →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+      <div class="section-header">
+        <span class="section-eyebrow">03 / Academic Trajectory</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2022 – 2027</span>
+          <h3>Bachelor of Science and Master of Science (BS-MS Dual Degree)</h3>
+          <p><strong>Department of Mathematics</strong>, Indian Institute of Science Education and Research (IISER), Tirupati</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.35rem;">
+            Address: Srinivasapuram, Yerpedu Mandal, Tirupati Dist, Andhra Pradesh, India – 517619
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">Higher Secondary Education (Class XII)</span>
+          <h3>Seva Milani High School, Berhampur, West Bengal</h3>
+          <p>West Bengal Council of Higher Secondary Education (WBCHSE Board)</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">Secondary Education (Class X)</span>
+          <h3>Krishnath College School, Berhampur, West Bengal</h3>
+          <p>West Bengal Board of Secondary Education (WBBSE Board)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & BEYOND MATH SECTION -->
+    <section id="about">
+      <div class="section-header">
+        <span class="section-eyebrow">04 / Personal</span>
+        <h2 class="section-title">About Me & Beyond Mathematics</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>A Bit More About Me</h3>
+          <p style="margin-top: 0.5rem;">
+            My broader mathematical interests span <strong>Algebraic Geometry, Algebraic Topology, and Representation Theory</strong>, with a particular fondness for Enumerative Geometry and Intersection Theory problems.
+          </p>
+          <p style="margin-top: 1rem;">
+            When I step away from commutative diagrams and Chow rings, I enjoy quiet evening walks around campus and exploring diverse cinema—I especially appreciate brilliant Indian films and storytelling.
+          </p>
+        </div>
+
+        <div class="campus-showcase">
+          <img src="IMG20260402182126.jpg" alt="Evening sky over IISER Tirupati campus" />
+          <div class="campus-caption">
+            <strong>Evening walks at IISER Tirupati</strong> — Sunset over the hills and campus hostels (photographed by me).
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sarthak Hazra &middot; Built with MathJax & Hosted on GitHub Pages</p>
+  </footer>
 
   <script>
-    function switchPage(pageId) {
-      document.querySelectorAll('.page-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.querySelectorAll('.sidebar nav a').forEach(link => {
-        link.classList.remove('active');
-      });
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      if (html.getAttribute('data-theme') === 'light') {
+        html.setAttribute('data-theme', 'dark');
+        btn.textContent = '☀️ Light Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.setAttribute('data-theme', 'light');
+        btn.textContent = '🌙 Dark Mode';
+        localStorage.setItem('theme', 'light');
+      }
+    }
 
-      document.getElementById('page-' + pageId).classList.add('active');
-      document.getElementById('link-' + pageId).classList.add('active');
-      window.scrollTo(0, 0);
+    // Load saved theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.getElementById('themeToggle').textContent = '☀️ Light Mode';
     }
   </script>
 </body>
