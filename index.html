@@ -542,7 +542,24 @@
       display: grid;
       gap: 1.25rem;
     }
-
+    .card-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      justify-content: flex-end;
+      background-image: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 60%), url("campus.jpg");
+      background-size: cover;
+      background-position: center 70%;
+      border: none;
+    }
+    .card-photo h3,
+    .card-photo p { color: #ffffff; }
+    .card-photo .photo-caption {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.6rem;
+    }
     .beyond .icon {
       font-size: 1.6rem;
       margin-bottom: 0.4rem;
@@ -805,10 +822,10 @@
             <h2 class="section-title">Beyond math</h2>
           </div>
           <div class="beyond">
-            <div class="card">
-              <div class="icon">🌆</div>
+            <div class="card card-photo">
               <h3>Evening walks</h3>
               <p>Where most proofs actually get unstuck.</p>
+              <div class="photo-caption">Evening sky over IISER Tirupati campus</div>
             </div>
             <div class="card">
               <div class="icon">🎞️</div>
