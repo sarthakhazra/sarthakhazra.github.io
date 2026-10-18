@@ -542,7 +542,20 @@
       display: grid;
       gap: 1.25rem;
     }
-       /* ---------- Photo background cards ---------- */
+       /* ---------- Photo background ---------- */
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    
     .card-photo {
       position: relative;
       overflow: hidden;
@@ -613,6 +626,7 @@
       <div class="hero-card">
         <canvas id="heroCanvas" aria-hidden="true"></canvas>
         <div class="hero-content">
+          <img src="profile.jpg" alt="Sarthak Hazra" class="profile-pic" />
           <div class="status-pill">Mathematics · IISER Tirupati</div>
           <h1>Sarthak Hazra</h1>
           <p class="hero-subtitle">
