@@ -888,11 +888,11 @@
       const btn = document.getElementById('themeToggle');
       if (html.getAttribute('data-theme') === 'light') {
         html.setAttribute('data-theme', 'dark');
-        btn.textContent = '☀️ Light Mode';
+        btn.textContent = '☀️';
         try { localStorage.setItem('theme', 'dark'); } catch (e) {}
       } else {
         html.setAttribute('data-theme', 'light');
-        btn.textContent = '🌙 Dark Mode';
+        btn.textContent = '🌙';
         try { localStorage.setItem('theme', 'light'); } catch (e) {}
       }
       window.dispatchEvent(new Event('themechange'));
