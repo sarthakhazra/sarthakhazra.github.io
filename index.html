@@ -618,7 +618,7 @@
         <li><a href="#beyond">Beyond math</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <button class="theme-btn" onclick="toggleTheme()" id="themeToggle">🌙 Dark Mode</button>
+          <button class="theme-btn" onclick="toggleTheme()" id="themeToggle">🌙</button>
         </li>
       </ul>
     </div>
@@ -901,7 +901,7 @@
     try {
   if (localStorage.getItem('theme') === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    document.getElementById('themeToggle').textContent = '☀️ Light Mode';
+    document.getElementById('themeToggle').textContent = '☀️';
   }
 } catch (e) {}
 
